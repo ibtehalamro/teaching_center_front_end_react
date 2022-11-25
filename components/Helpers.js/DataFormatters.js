@@ -1,0 +1,1 @@
+export const getFormattedDate = (date) =>new Date(date).toISOString();

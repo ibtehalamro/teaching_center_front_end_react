@@ -1,0 +1,49 @@
+.form_container_title {
+  padding-bottom: 2rem;
+}
+
+.form {
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  gap: 0.5rem;
+}
+.form__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.form__group input {
+  padding: 0.3rem;
+  line-height: 1.3rem;
+  width: 100%;
+}
+.form__group select {
+  padding: 0.3rem;
+  line-height: 1.3rem;
+  width: 100%;
+}
+.form__group label {
+  width: 25%;
+}
+.form input[type=submit] {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  background: rgb(13, 154, 93);
+  color: white;
+  transition: all 0.5s ease;
+}
+.form input[type=submit]:hover, .form input[type=submit]:focus {
+  background: rgb(10, 116, 70);
+}
+
+.update_from {
+  background-color: white;
+  padding: 0.8rem 1rem;
+}/*# sourceMappingURL=form.module.css.map */

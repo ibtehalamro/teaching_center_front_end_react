@@ -1,0 +1,77 @@
+.student__container__card {
+  background-color: rgba(232, 232, 232, 0.797);
+  margin: 1rem;
+  position: relative;
+  padding: 1rem;
+}
+.student__container__card > div {
+  display: flex;
+  justify-content: space-between;
+}
+.student__container__card > div .studentSectionsButton {
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(115, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px;
+}
+.student__container__card .name {
+  font-size: 1.2rem;
+}
+.student__container__card .editLink {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.student__container__card .editLink > button {
+  width: 4rem;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(199, 199, 199);
+}
+
+.student__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.student__sections .assignSectionToStudentButton {
+  padding: 0.5rem;
+  border: none;
+  box-shadow: 0px 0px 6px 1px #b1b1b1;
+  position: relative;
+  border-radius: 10px;
+}
+.student__sections .assignSectionToStudentButton:hover {
+  color: #f0094a;
+  background: transparent;
+  box-shadow: none;
+}
+.student__sections .assignSectionToStudentButton:before, .student__sections .assignSectionToStudentButton:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #f0094a;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.1333333333);
+  transition: 400ms ease all;
+}
+.student__sections .assignSectionToStudentButton:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.student__sections .assignSectionToStudentButton:hover:before, .student__sections .assignSectionToStudentButton:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+.student__sections__item {
+  background-color: rgb(255, 255, 255);
+  padding: 0.8rem 0.4rem;
+  box-shadow: 0px 0px 6px 1px #b1b1b1;
+  border-radius: 10px;
+}/*# sourceMappingURL=student.module.css.map */

@@ -1,0 +1,56 @@
+.form_container {
+  &_title {
+    padding-bottom: 2rem;
+  }
+}
+
+.form {
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  gap: 0.5rem;
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+     
+    & input  {
+      padding: 0.3rem;
+      line-height: 1.3rem;
+      width: 100%;
+    }
+    & select  {
+      padding: 0.3rem;
+      line-height: 1.3rem;
+      width: 100%;
+    }
+    
+
+    & label {
+      width: 25%;
+    }
+  }
+  input[type="submit"]{
+ 
+    border:0;
+    outline:none;
+    border-radius:0;
+    padding:.5rem 0;
+    font-weight: bold;
+    font-size:1.1rem;
+           letter-spacing:.1em;
+    background: rgb(13, 154, 93);
+    color:white;
+    transition:all .5s ease;
+     &:hover, &:focus {
+      background: rgb(10, 116, 70);
+    }
+  
+}
+}
+
+.update_from{
+  background-color: white;
+  padding: .8rem 1rem;
+}

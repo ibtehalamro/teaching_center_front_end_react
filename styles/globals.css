@@ -2,25 +2,116 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
 }
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.mainContainer {
+  display: grid;
+  grid-template-columns: 15% minmax(80vh, 1fr);
+  grid-template-rows: 20% 1fr 10%;
+  grid-template-areas: "sideNav header" "sideNav main" "sideNav footer";
 }
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: 15% minmax(80vw, 1fr);
+  grid-template-rows: 10vh minmax(80vh, 1fr) 10vh;
+  grid-template-areas: "sideNav header" "sideNav main" "sideNav footer";
+}
+
+.header-container {
+  grid-area: header;
+}
+
+.header-container {
+  grid-area: header;
+}
+
+.sideNavbar-container {
+  grid-area: sideNav;
+}
+
+.mainBody {
+  grid-area: main;
+  padding: 1rem;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='32.5' height='53.115' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 1)'/><path d='M14.499 11.82L4.36 5.968l.002-11.706 10.14-5.855L24.638-5.74l-.001 11.707zm0 50.06L4.36 56.029l.002-11.706 10.14-5.855 10.137 5.852-.001 11.707zm14.498-25.117L18.858 30.91l.002-11.707L29 13.349l10.137 5.853-.001 11.706zm-29 0l-10.139-5.852.002-11.707L0 13.349l10.138 5.853-.002 11.706zm14.501-19.905L0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0l-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z' transform='translate(1.75,0)' stroke-linecap='square' stroke-width='0.5' stroke='hsla(259, 0%, 89%, 0.44)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(-31,0)' fill='url(%23a)'/></svg>");
+}
+
+.component__links {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.component__links__link {
+  border: none;
+  position: relative;
+  margin-left: 2rem;
+  width: 25vw;
+  font-weight: 400;
+  padding: 1rem;
+  text-decoration: none;
+  background-color: rgb(225, 232, 205);
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+.component__links__link::before {
+  transition: all 0.3s linear;
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  content: "";
+  margin-right: 1rem;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='40' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(333,54.2%,25.7%,1)'/><path d='M10-10V0l10 10V0L10-10zm0 10L0 10v10l10-10V0zm0 30v10l10 10V40L10 30z'  stroke-width='1' stroke='none' fill='hsla(341,63.2%,32%,1)'/><path d='M10 10l10 10v10L10 20zm0 10L0 30v10l10-10z'  stroke-width='1' stroke='none' fill='hsla(253,34.8%,18%,1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  width: 1rem;
+  height: 100%;
+}
+.component__links__link:hover {
+  font-weight: bold;
+}
+.component__links__link:hover::before {
+  width: 2rem;
+  left: -1.5rem;
+}
+
+.popUp-dialog {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: rgba(73, 72, 72, 0.689);
+}
+.popUp-dialog > .children {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem;
+}
+.popUp-dialog > .children > button {
+  padding: 0.3rem 1rem;
+  font-weight: bold;
+  position: absolute;
+  top: 1rem;
+  z-index: 50;
+  transition: all 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  border: none;
+  cursor: pointer;
+}
+.popUp-dialog > .children > button:hover {
+  font-size: 1.1rem;
+}/*# sourceMappingURL=globals.css.map */
