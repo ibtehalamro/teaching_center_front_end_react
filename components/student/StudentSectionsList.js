@@ -1,10 +1,8 @@
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { studentLinks } from "../../Constants/Links/Links";
 import { getFormattedDate } from "../Helpers.js/DataFormatters";
 import { PopUp } from "../layout/popup";
 import { AssignStudentToSection } from "./AssignStudentToSection";
-import { UpdateStudentForm } from "./UpdateStudentForm";
 
 export const StudentSectionsList = ({ studentStyle, studentId }) => {
   const [sections, setSections] = useState(null);

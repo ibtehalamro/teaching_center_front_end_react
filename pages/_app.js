@@ -1,6 +1,5 @@
 import { Layout } from '../components/layout/Layout'
 import '../styles/globals.scss'
-import MainLayout from "../styles/layout/MainLayout.module.scss";
 function MyApp({ Component, pageProps }) {
   return  (
   <div className={"mainContainer"}>

@@ -2,6 +2,7 @@
 import { CourseSectionsList } from "../../components/courses/CourseSectionsList";
 import { CoursesList } from "../../components/courses/CoursesList";
 import {CourseForm} from "../../components/courses/NewCourseForm";
+import ComponentSelectionButton from "../../components/layout/ComponentSelectionButton";
 import { SectionForm } from "../../components/sections/SectionForm";
 import { SectionStudentsList } from "../../components/sections/SectionStudentsList";
 import courseStyle from "../../styles/course/course.module.scss";
@@ -10,14 +11,6 @@ const Courses = () => {
   const [componentName, setComponentName] = useState("new course");
   const [courseObject,setCourseObject] = useState(0);
   useEffect(() => {}, [componentName]);
-
-  const buttonElement = (buttonComponentName, buttonLabel) => {
-    return (
-      <button key={buttonLabel} className={["component__links__link"].join(" ")} onClick={() => setComponentName(buttonComponentName)}>
-        {buttonLabel}
-      </button>
-    );
-  };
 
   const showSections = (courseObject) => { 
     const course={...courseObject}
@@ -36,20 +29,19 @@ const Courses = () => {
   setComponentName("createSection");
   }
 
-  const components = [
+  const COURSE_COMPONENTS = [
     {
       name: "new course",
       buttonLabel: "New Course",
-      component: <CourseForm key={"form"}/>,
+      component: <CourseForm key={"form"}/>
     },
     {
       name: "courses",
       buttonLabel: "Courses List",
       component: (
         <CoursesList key={"list"} courseStyle={courseStyle}
-         showSections={n=>showSections(n)}
-        />
-      ),
+         showSections={sectionId=>showSections(sectionId)}/>
+      )
     },
     {
       name: "sections",
@@ -58,7 +50,7 @@ const Courses = () => {
         <CourseSectionsList key={"sections"} 
        courseStyle={courseStyle}   courseId={courseObject.courseId} courseName={courseObject.courseName}
        showSectionStudents={sectionId=>showSectionStudents(sectionId)} showCreateSectionForm={(courseId,courseName)=>viewCreateSectionForm(courseId,courseName)} />
-      ),
+      )
     },
     {
       name: "sectionStudents",
@@ -67,7 +59,7 @@ const Courses = () => {
         <SectionStudentsList key={"students"} 
        courseStyle={courseStyle}   sectionId={courseObject} 
        showSectionStudents={sectionId=>showSectionStudents(sectionId)} />
-      ),
+      )
     }, {
       name: "createSection",
       buttonLabel: "none",
@@ -81,13 +73,13 @@ const Courses = () => {
   return (
     <div>
       <div className="component__links">
-     {components.map((component) => {
+     {COURSE_COMPONENTS.map((component) => {
       if(component.buttonLabel!=="none")
-        return buttonElement(component.name, component.buttonLabel);
+        return ComponentSelectionButton(component.name, component.buttonLabel);
       })}
       </div>
 
-      {components.map((cName) => {
+      {COURSE_COMPONENTS.map((cName) => {
         if (componentName == cName.name) return cName.component;
       })}
     
@@ -96,25 +88,3 @@ const Courses = () => {
 };
 
 export default Courses;
-
-
-
-
-
-
-
-// import Link from "next/link";
-
-// const Courses= () => {
-//     return (
-//       <div>
-//           <div>
-//           <Link href="/courses/new">New Course</Link> 
-//            <Link href="/courses/list">Course List</Link>
-//           </div>
-//       </div>
-//     )
-//   }
-  
-  
-//   export default Courses;
